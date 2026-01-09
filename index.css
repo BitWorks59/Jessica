@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+.bg-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      rgba(255, 105, 180, 0.4),
+      rgba(255, 105, 180, 0.4)
+    ),
+    url("oma.jpg");
+  background-size: 60%;
+  filter: blur(3px);
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .bg-section {
+    background-size: 85%; /* larger on small screens */
+  }
+}
+@media (max-width: 480px) {
+  .bg-section {
+    background-size: 100%;
+  }
+}
+
+.container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  min-height: 100vh;
+  z-index: 1;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: rgb(255, 253, 254);
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#typing-text {
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  opacity: 50px;
+  border-left: 4px solid hotpink;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  
+  /* Make text container scrollable */
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: hotpink rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar for webkit browsers */
+#typing-text::-webkit-scrollbar {
+  width: 8px;
+}
+
+#typing-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+#typing-text::-webkit-scrollbar-thumb {
+  background-color: hotpink;
+  border-radius: 4px;
+}
+
+@keyframes blink {
+  50% {
+    border-left-color: transparent;
+  }
+}
+
+/* Typing cursor effect */
+#typing-text::after {
+  content: '|';
+  animation: cursorBlink 1s infinite;
+  color: hotpink;
+  font-weight: bold;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  #typing-text {
+    max-height: 60vh;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  #typing-text {
+    font-size: 15px;
+    line-height: 1.6;
+    max-height: 50vh;
+    border-left: 3px solid hotpink;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
